@@ -381,8 +381,21 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.textContent = "Đang xử lý...";
 
-            // Simulate server network call
-            setTimeout(() => {
+            // Create form data to submit
+            const formData = new FormData(regForm);
+
+            // Fetch to FormSubmit AJAX endpoint
+            fetch("https://formsubmit.co/ajax/gentle.nguyen987@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error("Gửi dữ liệu không thành công.");
+            })
+            .then(data => {
                 // Show success screen
                 regForm.classList.add('hidden');
                 successMessage.classList.add('active');
@@ -390,11 +403,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Reset form values
                 regForm.reset();
                 selectElements.forEach(select => select.classList.remove('has-value'));
-                
+            })
+            .catch(error => {
+                alert("Đã xảy ra lỗi khi gửi yêu cầu. Vui lòng liên hệ Hotline 0907.070.308 để được hỗ trợ đăng ký trực tiếp.");
+                console.error("Error submitting form:", error);
+            })
+            .finally(() => {
                 // Restore button
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalBtnText;
-            }, 1200);
+            });
         }
     });
 

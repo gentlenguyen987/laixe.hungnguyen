@@ -622,20 +622,24 @@
 
                 <div class="contact-form-wrapper card-glass">
                     <form id="registration-form" class="registration-form">
+                        <!-- FormSubmit settings -->
+                        <input type="hidden" name="_subject" value="Học viên mới đăng ký từ Website Hưng Nguyên">
+                        <input type="hidden" name="_captcha" value="false">
+
                         <div class="form-group">
-                            <input type="text" id="fullname" name="fullname" class="form-input" placeholder=" " required>
+                            <input type="text" id="fullname" name="Họ và Tên" class="form-input" placeholder=" " required>
                             <label for="fullname" class="form-label">Họ và Tên học viên *</label>
                             <span class="error-msg" id="name-error">Vui lòng nhập họ tên hợp lệ</span>
                         </div>
 
                         <div class="form-group">
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder=" " required>
+                            <input type="tel" id="phone" name="Số điện thoại" class="form-input" placeholder=" " required>
                             <label for="phone" class="form-label">Số điện thoại liên hệ *</label>
                             <span class="error-msg" id="phone-error">Vui lòng nhập số điện thoại hợp lệ (10 chữ số)</span>
                         </div>
 
                         <div class="form-group">
-                            <select id="area" name="area" class="form-input select-input" required>
+                            <select id="area" name="Khu vực học" class="form-input select-input" required>
                                 <option value="" disabled selected hidden></option>
                                 <option value="longan">Khu vực Long An</option>
                                 <option value="hcm">Khu vực TP. Hồ Chí Minh</option>
@@ -644,7 +648,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select id="course-interest" name="course-interest" class="form-input select-input" required>
+                            <select id="course-interest" name="Khóa học đăng ký" class="form-input select-input" required>
                                 <option value="" disabled selected hidden></option>
                                 <option value="A1">Bằng xe máy A1</option>
                                 <option value="A2">Bằng mô tô A2</option>
@@ -657,7 +661,7 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea id="message" name="message" class="form-input textarea-input" placeholder=" " rows="3"></textarea>
+                            <textarea id="message" name="Lời nhắn thêm" class="form-input textarea-input" placeholder=" " rows="3"></textarea>
                             <label for="message" class="form-label">Lời nhắn hoặc yêu cầu cụ thể (Không bắt buộc)</label>
                         </div>
 

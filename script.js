@@ -321,15 +321,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Validation helper functions
     const validateName = (name) => {
-        // Name must be at least 2 words, only letters and spaces (Vietnamese characters supported)
-        const regex = /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂÂÊÔƠƯưăâêôơư\s]{4,50}$/;
+        // Name must be between 2 and 50 characters, only letters and spaces (Vietnamese characters supported)
+        const regex = /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂÂÊÔƠƯưăâêôơư\s]{2,50}$/;
         return regex.test(name.trim());
     };
 
     const validatePhone = (phone) => {
-        // Vietnamese phone number check (e.g. 09xxxxxxxx, 03xxxxxxxx, 08xxxxxxxx...)
-        const regex = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
-        return regex.test(phone.trim());
+        // Allow numbers, spaces, dots, hyphens, and plus signs. Total digits must be between 9 and 11.
+        const cleanPhone = phone.replace(/[\s\.\-\+]/g, '');
+        const regex = /^[0-9]{9,11}$/;
+        return regex.test(cleanPhone);
     };
 
     const markFieldInvalid = (element, errorId, show) => {

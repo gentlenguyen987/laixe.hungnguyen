@@ -311,6 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (selectedCourseName.includes("B2")) dropdownVal = "B2";
             else if (selectedCourseName.includes("C")) dropdownVal = "C";
             else if (selectedCourseName.includes("D") || selectedCourseName.includes("E")) dropdownVal = "DE";
+            else if (selectedCourseName.includes("Bổ Túc")) dropdownVal = "botuc";
 
             if (dropdownVal) {
                 courseInterestInput.value = dropdownVal;

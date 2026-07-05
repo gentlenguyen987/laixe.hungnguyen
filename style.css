@@ -1598,3 +1598,114 @@ html[data-theme="light"] .moon-icon {
         background-position: 0% 50%;
     }
 }
+
+/* ==========================================================================
+   FLOATING CONTACT WIDGET
+   ========================================================================== */
+.floating-contact-widget {
+    position: fixed;
+    bottom: 95px;
+    right: 30px;
+    z-index: 98;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-widget-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.zalo-btn {
+    background: linear-gradient(135deg, #0068ff, #00b0ff);
+}
+
+.zalo-widget-icon {
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.phone-btn {
+    background: linear-gradient(135deg, var(--brand-red), #ff5e62);
+    animation: widgetWiggle 6s ease-in-out infinite;
+}
+
+.contact-widget-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Tooltip on hover */
+.widget-tooltip {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-widget-btn:hover .widget-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+@keyframes widgetWiggle {
+    0%, 90%, 100% {
+        transform: rotate(0);
+    }
+    92% {
+        transform: rotate(10deg) scale(1.05);
+    }
+    94% {
+        transform: rotate(-10deg) scale(1.05);
+    }
+    96% {
+        transform: rotate(10deg) scale(1.05);
+    }
+    98% {
+        transform: rotate(-10deg) scale(1.05);
+    }
+}
+
+/* Adjust position on small mobiles to avoid cluttering */
+@media (max-width: 480px) {
+    .floating-contact-widget {
+        bottom: 85px;
+        right: 20px;
+        gap: 10px;
+    }
+    .contact-widget-btn {
+        width: 44px;
+        height: 44px;
+    }
+    .widget-tooltip {
+        display: none;
+    }
+}
